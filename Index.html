@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Student Management System dashboard built with HTML, CSS, JavaScript and C."
+    >
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =================================
+         HAMBURGER MENU
+    ================================== -->
+
+    <button
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-label="Toggle navigation menu"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <!-- =================================
+         SIDEBAR
+    ================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            SMS<span>.</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="#dashboard" class="nav-item active">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="#students" class="nav-item">
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+            <a href="#add-student" class="nav-item">
+                <span>＋</span>
+                Add Student
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Student Management</p>
+            <small>System v1.0</small>
+        </div>
+
+    </aside>
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main
+        class="main-content"
+        id="dashboard"
+    >
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <p class="welcome-text">
+                    Welcome back
+                </p>
+
+                <h1>
+                    Student Dashboard
+                </h1>
+
+            </div>
+
+            <div class="header-info">
+
+    <div class="header-badge">
+        C + Web System
+    </div>
+
+    <div
+        class="current-date"
+        id="current-date"
+    >
+        —
+    </div>
+
+</div>
+
+        </header>
+
+
+        <!-- =================================
+             STATISTICS
+        ================================== -->
+
+        <section class="stats-grid">
+
+            <!-- TOTAL STUDENTS -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👨‍🎓
+                </div>
+
+                <div>
+
+                    <p>Total Students</p>
+
+                    <h2 id="total-students">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL COURSES -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <div>
+
+                    <p>Total Courses</p>
+
+                    <h2 id="total-courses">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- SYSTEM STATUS -->
+
+            <div class="stat-card">
+
+    <div class="stat-icon">
+        🕐
+    </div>
+
+    <div>
+
+        <p>Latest Registration</p>
+
+        <h2
+            id="latest-registration"
+            class="latest-registration"
+        >
+            —
+        </h2>
+
+    </div>
+
+</div>
+
+        </section>
+
+
+        <!-- =================================
+             ADD STUDENT
+        ================================== -->
+
+        <section
+            class="dashboard-card"
+            id="add-student"
+        >
+
+            <div class="card-header">
+
+                <div>
+
+                    <p class="section-label">
+                        STUDENT MANAGEMENT
+                    </p>
+
+                    <h2>
+                        Add New Student
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <form id="student-form">
+
+                <div class="form-grid">
+
+                    <!-- STUDENT ID -->
+
+                    <div class="form-group">
+
+                        <label for="student-id">
+                            Student ID
+                        </label>
+
+                        <input
+                            type="number"
+                            id="student-id"
+                            placeholder="e.g. 101"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="student-name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="student-name"
+                            placeholder="e.g. Jonathan"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- AGE -->
+
+                    <div class="form-group">
+
+                        <label for="student-age">
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            id="student-age"
+                            placeholder="e.g. 20"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- COURSE -->
+
+                    <div class="form-group">
+
+                        <label for="student-course">
+                            Course
+                        </label>
+
+                        <input
+                            type="text"
+                            id="student-course"
+                            placeholder="e.g. Computer Science"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    ＋ Add Student
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- =================================
+             STUDENT RECORDS
+        ================================== -->
+
+        <section
+            class="dashboard-card"
+            id="students"
+        >
+
+            <!-- RECORD HEADER -->
+
+            <div class="card-header">
+
+                <div>
+
+                    <p class="section-label">
+                        RECORDS
+                    </p>
+
+                    <div class="records-title">
+
+                        <h2>
+                            Student Records
+                        </h2>
+
+                        <span
+                            id="records-count"
+                            class="records-count"
+                        >
+                            0 Students
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+    <input
+        type="search"
+        id="search-input"
+        placeholder="Search student..."
+    >
+
+    <button
+        type="button"
+        id="clear-search"
+        class="clear-search"
+    >
+        Clear
+    </button>
+
+</div>
+
+            </div>
+
+
+            <!-- =================================
+                 TABLE SCROLL AREA
+            ================================== -->
+
+            <div class="table-container">
+
+                <div class="table-scroll">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Name
+                                </th>
+
+                                <th>
+                                    Age
+                                </th>
+
+                                <th>
+                                    Course
+                                </th>
+
+                                <th>
+                                    Registered
+                                </th>
+
+                                <th>
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="student-table">
+
+                            <!-- JavaScript adds students here -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    id="empty-state"
+                    class="empty-state"
+                >
+
+                    <div class="empty-icon">
+                        👨‍🎓
+                    </div>
+
+                    <h3>
+                        No Students Found
+                    </h3>
+
+                    <p>
+                        Add a student to start building
+                        your student records.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             TECHNOLOGIES
+        ================================== -->
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <p class="section-label">
+                        TECHNOLOGIES
+                    </p>
+
+                    <h2>
+                        Built With
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="technology-list">
+
+                <span>C</span>
+
+                <span>HTML</span>
+
+                <span>CSS</span>
+
+                <span>JavaScript</span>
+
+                <span>Git & GitHub</span>
+
+                <span>Problem Solving</span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =================================
+         EDIT STUDENT MODAL
+    ================================== -->
+
+    <div
+        class="modal-overlay"
+        id="edit-modal"
+    >
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="section-label">
+                        EDIT RECORD
+                    </p>
+
+                    <h2>
+                        Edit Student
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="close-modal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="edit-form">
+
+                <input
+                    type="hidden"
+                    id="edit-id"
+                >
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="edit-name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="edit-name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- AGE -->
+
+                <div class="form-group">
+
+                    <label for="edit-age">
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="edit-age"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- COURSE -->
+
+                <div class="form-group">
+
+                    <label for="edit-course">
+                        Course
+                    </label>
+
+                    <input
+                        type="text"
+                        id="edit-course"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- MODAL BUTTONS -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        id="cancel-edit"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================
+         TOAST NOTIFICATION
+    ================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+    >
+
+        <span id="toast-icon">
+            ✓
+        </span>
+
+        <span id="toast-message">
+            Success
+        </span>
+
+    </div>
+
+
+  <!-- =================================
+     VIEW STUDENT DETAILS MODAL
+================================== -->
+
+<div
+    class="modal-overlay"
+    id="view-modal"
+>
+
+    <div class="modal view-modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <p class="section-label">
+                    STUDENT DETAILS
+                </p>
+
+                <h2>
+                    Student Profile
+                </h2>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="close-view-modal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- STUDENT PROFILE -->
+
+        <div class="student-profile">
+
+            <div
+                class="profile-avatar"
+                id="view-avatar"
+            >
+                J
+            </div>
+
+            <div class="profile-name">
+
+                <h3 id="view-name">
+                    —
+                </h3>
+
+                <p id="view-course">
+                    —
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STUDENT INFORMATION -->
+
+        <div class="student-details-grid">
+
+            <div class="detail-item">
+
+                <span>
+                    Student ID
+                </span>
+
+                <strong id="view-id">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>
+                    Age
+                </span>
+
+                <strong id="view-age">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>
+                    Course
+                </span>
+
+                <strong id="view-course-detail">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>
+                    Registered
+                </span>
+
+                <strong id="view-date">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="view-modal-footer">
+
+            <button
+                type="button"
+                class="cancel-button"
+                id="close-view-button"
+            >
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+  <!-- =================================
+     DELETE CONFIRMATION MODAL
+================================== -->
+
+<div
+    class="modal-overlay"
+    id="delete-modal"
+>
+
+    <div class="modal delete-modal">
+
+        <div class="delete-icon">
+            !
+        </div>
+
+        <div class="delete-content">
+
+            <p class="section-label">
+                DELETE RECORD
+            </p>
+
+            <h2>
+                Delete Student?
+            </h2>
+
+            <p id="delete-message"></p>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="cancel-button"
+                id="cancel-delete"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="delete-confirm-button"
+                id="confirm-delete"
+            >
+                Delete Student
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
